@@ -2,10 +2,10 @@
  Implementation of CQL in "Conservative Q-Learning for Offline Reinforcement Learning" based on BRAC family.
  
 **Usage**:
- Plug this file into BRAC architecture and run train_offline.py. 
+ Plug this file into BRAC architecture[https://github.com/google-research/google-research/tree/master/behavior_regularized_offline_rl] and run train_offline.py. 
  
  ```
-CUDA_VISIBLE_DEVICES=$GPU_DEVICE python train_offline.py \
+python train_offline.py \
     --alsologtostderr --sub_dir=cql+$VARIANT+$PLR+$ALPHA \
     --root_dir=$ROOT_DIR \
     --env_name=$ENV \
@@ -23,5 +23,5 @@ CUDA_VISIBLE_DEVICES=$GPU_DEVICE python train_offline.py \
     --gin_bindings="train_eval_offline.batch_size=256" \
     --gin_bindings="train_eval_offline.seed=$SEED" \
     --gin_bindings="train_eval_offline.weight_decays=[$L2_WEIGHT]" \
-    --gin_bindings="train_eval_offline.optimizers=(('adam', 1e-3), ('adam', $PLR), ('adam', 1e-3), ('adam', 1e-3))" &
+    --gin_bindings="train_eval_offline.optimizers=(('adam', 1e-3), ('adam', $PLR), ('adam', 1e-3), ('adam', 1e-3))" 
 ```
